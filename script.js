@@ -1,8 +1,10 @@
-// Dark mode preference + dynamic projects
-(function() {
+(function () {
   const root = document.documentElement;
   const stored = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const prefersDark = window.matchMedia(
+    '(prefers-color-scheme: dark)'
+  ).matches;
+
   const theme = stored || (prefersDark ? 'dark' : 'light');
   if (theme === 'dark') root.setAttribute('data-theme', 'dark');
 
@@ -13,7 +15,8 @@
     localStorage.setItem('theme', isDark ? 'light' : 'dark');
   });
 
-  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('year').textContent =
+    new Date().getFullYear();
 
   fetch('projects.json')
     .then(r => r.json())
@@ -23,15 +26,29 @@
         const card = document.createElement('article');
         card.className = 'card';
         card.innerHTML = `
-          <h3><a href="${p.url}" target="_blank" rel="noopener">${p.name}</a></h3>
+          <h3>
+            <a href="${p.url}" target="_blank" rel="noopener">
+              ${p.name}
+            </a>
+          </h3>
           <p>${p.description}</p>
-          ${p.image ? `<img src="${p.image}" alt="${p.name} screenshot">` : ''}
-          <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+          ${
+            p.image
+              ? `<img src="${p.image}" alt="${p.name} screenshot">`
+              : ''
+          }
+          <div class="tags">
+            ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+          </div>
         `;
         grid.appendChild(card);
       });
     })
     .catch(() => {
-      document.getElementById('projectsGrid').innerHTML = '<p class="muted">Add your projects to projects.json to see them here.</p>';
+      document.getElementById('projectsGrid').innerHTML = `
+        <p class="muted">
+          Add your projects to projects.json to see them here.
+        </p>
+      `;
     });
 })();
