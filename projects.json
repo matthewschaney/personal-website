@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Starmap",
+    "description": "Interactive sky map built with WebGL; pan/zoom through constellations in real time.",
+    "url": "https://example.com/starmap",
+    "image": "",
+    "tags": [
+      "WebGL",
+      "Astronomy",
+      "Maps"
+    ]
+  },
+  {
+    "name": "HistoryQuest",
+    "description": "Timeline explorer that links primary sources to key events.",
+    "url": "https://example.com/historyquest",
+    "image": "",
+    "tags": [
+      "D3.js",
+      "History"
+    ]
+  },
+  {
+    "name": "Save Point",
+    "description": "Minimal game save-file diff/merge tool for modders.",
+    "url": "https://example.com/savepoint",
+    "image": "",
+    "tags": [
+      "Rust",
+      "CLI"
+    ]
+  }
+]

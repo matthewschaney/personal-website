@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Software Developer</title>
+  <meta name="description" content="Portfolio of Your Name — software developer building useful things with care." />
+  <link rel="canonical" href="https://example.com/" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Your Name — Software Developer" />
+  <meta property="og:description" content="Projects, writing, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Your Name",
+    "url": "https://example.com/",
+    "jobTitle": "Software Developer",
+    "sameAs": ["https://github.com/yourname", "https://www.linkedin.com/in/yourname/"]
+  }
+  </script>
+  <link rel="preload" href="assets/Inter-VariableFont_slnt,wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="#"><span aria-hidden="true">⌂</span><span class="sr-only">Home</span></a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" id="home">
+      <div class="container">
+        <h1>Your Name</h1>
+        <p class="tagline">Software developer who loves programming, astronomy, video games, history, and maps.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn secondary" href="assets/YourName_Resume.pdf" download>Download Résumé</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Featured Projects</h2>
+        <div id="projectsGrid" class="grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <h2>Experience</h2>
+        <ul class="timeline">
+          <li>
+            <h3>Senior Software Developer — Company</h3>
+            <p class="muted">2022 — Present</p>
+            <p>Lead developer on X. Built Y to improve Z by 30%.</p>
+          </li>
+          <li>
+            <h3>Software Developer — Other Company</h3>
+            <p class="muted">2019 — 2022</p>
+            <p>Worked on A, B, and C with D stack.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="writing" class="section">
+      <div class="container">
+        <h2>Writing</h2>
+        <ul id="posts" class="posts">
+          <li><a href="#">How I model side projects like products</a><span class="muted"> · 2025-01-10</span></li>
+          <li><a href="#">What astronomy taught me about debugging</a><span class="muted"> · 2024-08-14</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Best way to reach me is email: <a href="mailto:you@example.com">you@example.com</a> or on <a href="https://github.com/yourname">GitHub</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Your Name. Built with plain HTML/CSS/JS. <a href="https://github.com/yourname/your-portfolio">Source</a>.</small>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
