@@ -3,7 +3,7 @@
     "name": "ATOM (Augmenting the On-Scene Medic)",
     "description": "VR/AR system developed with Western Michigan University to assist medics in pediatric care. Contributed core AR app logic, backend integration, tablet companion app, and real-time SQL data sync. Reduced medication error rates in testing from ~30% to nearly zero.",
     "url": "https://wmich.edu/news/2023/05/71778",
-    "image": "",
+    "image": "/assets/atom_logo_light.png",
     "tags": ["VR/AR", "Healthcare", "HoloLens", "SQL", "C#", "Team Project"]
   },
   {

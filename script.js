@@ -206,13 +206,13 @@
         li.style.setProperty('--avatar-h', hue);
 
         li.innerHTML = `
-          <div class="avatar" aria-hidden="true">${
-            p.image ? '' : '<span>' + (p.name[0] || 'P') + '</span>'
-          }</div>
+          <div class="avatar" aria-hidden="true">
+            ${p.image
+              ? `<img src="${p.image}" alt="" loading="lazy">`
+              : `<span>${(p.name[0] || 'P')}</span>`}
+          </div>
           <div class="content">
-            <div class="title"><a href="${p.url}" target="_blank" rel="noopener">${
-          p.name
-        }</a></div>
+            <div class="title"><a href="${p.url}" target="_blank" rel="noopener">${p.name}</a></div>
             <div class="subtitle">${p.description}</div>
           </div>
           <div class="meta">${(p.tags || []).slice(0, 2).join(' · ') || '—'}</div>
@@ -238,9 +238,12 @@
     const hue = li.getAttribute('data-accent') || '245';
     li.style.setProperty('--avatar-h', hue);
     const av = li.querySelector('.avatar');
-    if (av && !av.textContent.trim())
+    const hasImg = !!av?.querySelector('img');
+    if (av && !hasImg && !av.textContent.trim()) {
       av.textContent = logo.slice(0, 2).toUpperCase();
+    }
   });
+
 
   // Experience badges
   (() => {
