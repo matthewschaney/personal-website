@@ -13,6 +13,7 @@
   <meta property="og:image" content="assets/og-image.png" />
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -26,11 +27,13 @@
     ]
   }
   </script>
+
   <link rel="preload" href="assets/Inter-VariableFont_slnt,wght.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header" role="banner">
     <nav class="nav" aria-label="Primary">
       <a class="logo" href="#"><span aria-hidden="true">⌂</span><span class="sr-only">Home</span></a>
@@ -38,6 +41,7 @@
       <ul class="nav-links">
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#writing">Writing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -46,6 +50,9 @@
 
   <main id="main" tabindex="-1">
     <section class="hero" id="home">
+      <!-- Signature starfield background -->
+      <canvas id="stars" aria-hidden="true"></canvas>
+
       <div class="container">
         <h1>Matthew Schaney</h1>
         <p class="tagline">Software developer who loves programming, astronomy, video games, history, and maps.</p>
@@ -59,7 +66,8 @@
     <section id="projects" class="section">
       <div class="container">
         <h2>Featured Projects</h2>
-        <p class="muted">Projects coming soon — check back later.</p>
+        <!-- populated by script.js -->
+        <div id="projectsGrid" class="grid"></div>
       </div>
     </section>
 
@@ -67,13 +75,13 @@
       <div class="container">
         <h2>Experience</h2>
         <ul class="timeline">
-          <li>
+          <li class="reveal">
             <h3>Software Developer — The Management Council</h3>
             <p class="muted">Apr 2025 — Present · Remote · Columbus, OH</p>
             <p>Full-stack Java developer on the State Software Development Team.</p>
           </li>
 
-          <li>
+          <li class="reveal">
             <h3>Software Developer — Schaney Coding (Freelance)</h3>
             <p class="muted">Dec 2022 — Mar 2025 · Remote</p>
             <ul>
@@ -85,7 +93,7 @@
             </ul>
           </li>
 
-          <li>
+          <li class="reveal">
             <h3>Application Developer — Hastings Mutual Insurance Company (Internship)</h3>
             <p class="muted">Jun 2023 — Sep 2023 · Hybrid · Hastings, MI</p>
             <ul>
@@ -95,7 +103,7 @@
             </ul>
           </li>
 
-          <li>
+          <li class="reveal">
             <h3>Motor Transport Operator — US Army</h3>
             <p class="muted">Jun 2016 — Oct 2019 · Fayetteville, NC</p>
             <ul>
@@ -115,11 +123,11 @@
       <div class="container">
         <h2>Education</h2>
         <ul class="timeline">
-          <li>
+          <li class="reveal">
             <h3>Western Michigan University</h3>
             <p class="muted">Bachelor of Science — Computer Science · Jan 2022 — Apr 2025</p>
           </li>
-          <li>
+          <li class="reveal">
             <h3>Kalamazoo Valley Community College</h3>
             <p class="muted">Associate of Science — Computer Science · Jan 2020 — Dec 2021</p>
           </li>
@@ -130,14 +138,14 @@
     <section id="writing" class="section">
       <div class="container">
         <h2>Writing</h2>
-        <p class="muted">Coming soon — essays on building useful software, astronomy-inspired debugging, and maps.</p>
+        <p class="muted reveal">Coming soon — essays on building useful software, astronomy-inspired debugging, and maps.</p>
       </div>
     </section>
 
     <section id="contact" class="section">
       <div class="container">
         <h2>Contact</h2>
-        <p>Best way to reach me is email: <a href="mailto:matt@schaney.net">matt@schaney.net</a> or on <a href="https://github.com/matthewschaney">GitHub</a>.</p>
+        <p class="reveal">Best way to reach me is email: <a href="mailto:matt@schaney.net">matt@schaney.net</a> or on <a href="https://github.com/matthewschaney">GitHub</a>.</p>
       </div>
     </section>
   </main>
@@ -148,11 +156,7 @@
     </div>
   </footer>
 
-  <script>
-    // Year stamp
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
+  <!-- no inline JS; everything lives in script.js -->
   <script src="script.js" defer></script>
 </body>
 </html>
