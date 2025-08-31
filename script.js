@@ -246,18 +246,12 @@
   (() => {
     const professionalYears = 3.3;
     const hobbyYears = 17;
-    const level = 'Senior';
-    const bigPicture = 'Able to see the big picture';
 
     const heroBox = document.getElementById('expSummary');
     heroBox.innerHTML = `
       <span class="badge"><span class="dot" aria-hidden="true"></span>${hobbyYears} yrs hobbyist</span>
       <span class="badge"><span class="dot" aria-hidden="true"></span>${professionalYears} yrs professional</span>
-      <span class="badge"><span class="dot" aria-hidden="true"></span>${level} level</span>
-      <span class="badge"><span class="dot" aria-hidden="true"></span>${bigPicture}</span>
     `;
 
-    const inline = document.getElementById('expInline');
-    inline.textContent = `${professionalYears} years professional • ${hobbyYears} years hobbyist • ${level} level — ${bigPicture}.`;
   })();
 })();
