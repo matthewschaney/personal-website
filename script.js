@@ -270,6 +270,12 @@
       const list = document.getElementById('writingList');
       if (!list) return;
       list.innerHTML = '';
+
+      const formatIsoDate = (iso) => {
+        const [year, month, day] = iso.split('-');
+        return `${month.padStart(2, '0')}/${day.padStart(2, '0')}/${year}`;
+      };
+
       items
         .sort((a, b) => b.date.localeCompare(a.date))
         .forEach((p) => {
@@ -283,7 +289,7 @@
               <div class="title"><a href="${p.url}">${p.title}</a></div>
               <div class="subtitle">${p.summary}</div>
             </div>
-            <div class="meta">${new Date(p.date).toLocaleDateString()} · ${p.readingMinutes} min</div>
+            <div class="meta">${formatIsoDate(p.date)} · ${p.readingMinutes} min</div>
           `;
           list.appendChild(li);
         });
