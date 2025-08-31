@@ -1,23 +1,23 @@
 [
   {
-    "name": "Starmap",
-    "description": "Interactive sky map built with WebGL; pan/zoom through constellations in real time.",
-    "url": "https://example.com/starmap",
+    "name": "ATOM (Augmenting the On-Scene Medic)",
+    "description": "VR/AR system developed with Western Michigan University to assist medics in pediatric care. Contributed core AR app logic, backend integration, tablet companion app, and real-time SQL data sync. Reduced medication error rates in testing from ~30% to nearly zero.",
+    "url": "https://wmich.edu/news/2023/05/71778",
     "image": "",
-    "tags": ["WebGL", "Astronomy", "Maps"]
+    "tags": ["VR/AR", "Healthcare", "HoloLens", "SQL", "C#", "Team Project"]
   },
   {
-    "name": "HistoryQuest",
-    "description": "Timeline explorer that links primary sources to key events.",
-    "url": "https://example.com/historyquest",
+    "name": "XPChronicle",
+    "description": "World of Warcraft addon with 700+ downloads. Tracks XP through in-game graphs and analysis.",
+    "url": "https://www.curseforge.com/wow/addons/xpchronicle",
     "image": "",
-    "tags": ["D3.js", "History"]
+    "tags": ["World of Warcraft", "Addon", "Lua"]
   },
   {
-    "name": "Save Point",
-    "description": "Minimal game save-file diff/merge tool for modders.",
-    "url": "https://example.com/savepoint",
+    "name": "Freelance Projects",
+    "description": "12+ proprietary freelance projects delivered to clients across multiple domains, including automation, data processing, and web apps.",
+    "url": "https://www.fiverr.com/matthewschaney/",
     "image": "",
-    "tags": ["Rust", "CLI"]
+    "tags": ["Freelance", "Software Development"]
   }
 ]
