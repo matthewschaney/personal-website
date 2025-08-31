@@ -10,7 +10,7 @@
     "name": "XPChronicle",
     "description": "World of Warcraft addon with 700+ downloads. Tracks XP through in-game graphs and analysis.",
     "url": "https://www.curseforge.com/wow/addons/xpchronicle",
-    "image": "",
+    "image": "/assets/xpchronicle_logo.png",
     "tags": ["World of Warcraft", "Addon", "Lua"]
   },
   {
