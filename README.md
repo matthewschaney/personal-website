@@ -1,6 +1,6 @@
 # Personal Website
 
-My personal portfolio and website — lightweight, fast, and accessible. Built with plain HTML/CSS/JS, no build step required.  
+My personal portfolio and website - lightweight, fast, and accessible. Built with plain HTML/CSS/JS, no build step required.  
 
 Deployed at [schaney.net](https://schaney.net).
 
@@ -27,7 +27,7 @@ To customize:
 
 ## 🌍 Deployment
 
-This site is static — deploy anywhere:
+This site is static - deploy anywhere:
 
 - **GitHub Pages**: push to `main`, enable Pages, and (optional) add `CNAME` with your domain.  
 - **Netlify**: drag-and-drop the folder, or connect via Git.  

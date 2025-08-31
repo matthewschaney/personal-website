@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "from-bits-to-prompts",
+    "title": "From Bits to Prompts: The Vanishing Craft of Programming",
+    "summary": "How the tower of abstraction empowered software - and what we risk forgetting as it rises.",
+    "date": "2025-08-31",
+    "tags": ["Programming", "Abstraction", "AI"],
+    "url": "/writing/from-bits-to-prompts/",
+    "readingMinutes": 6,
+    "image": "/assets/og-image.png"
+  }
+]

@@ -246,7 +246,7 @@
             <div class="title"><a href="${p.url}" target="_blank" rel="noopener">${p.name}</a></div>
             <div class="subtitle">${p.description}</div>
           </div>
-          <div class="meta">${(p.tags || []).slice(0, 2).join(' · ') || '—'}</div>
+          <div class="meta">${(p.tags || []).slice(0, 2).join(' · ') || '-'}</div>
         `;
         list.appendChild(li);
       });
@@ -259,8 +259,48 @@
             <div class="title">Add projects.json</div>
             <div class="subtitle">Your projects will appear here.</div>
           </div>
-          <div class="meta">—</div>
+          <div class="meta">-</div>
         </li>`;
+    });
+
+  // Writing -> compact card list.
+  fetch('writing.json')
+    .then((r) => r.json())
+    .then((items) => {
+      const list = document.getElementById('writingList');
+      if (!list) return;
+      list.innerHTML = '';
+      items
+        .sort((a, b) => b.date.localeCompare(a.date))
+        .forEach((p) => {
+          const li = document.createElement('li');
+          li.className = 'card-item reveal';
+          li.setAttribute('data-logo', '✍');
+          li.setAttribute('data-accent', '250');
+          li.innerHTML = `
+            <div class="avatar"></div>
+            <div class="content">
+              <div class="title"><a href="${p.url}">${p.title}</a></div>
+              <div class="subtitle">${p.summary}</div>
+            </div>
+            <div class="meta">${new Date(p.date).toLocaleDateString()} · ${p.readingMinutes} min</div>
+          `;
+          list.appendChild(li);
+        });
+    })
+    .catch(() => {
+      const list = document.getElementById('writingList');
+      if (list) {
+        list.innerHTML = `
+          <li class="card-item">
+            <div class="avatar">✍</div>
+            <div class="content">
+              <div class="title">Add writing.json</div>
+              <div class="subtitle">Your essays will appear here.</div>
+            </div>
+            <div class="meta">-</div>
+          </li>`;
+      }
     });
 
   // Inject initials into avatars.
