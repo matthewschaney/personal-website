@@ -1,162 +1,190 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Matthew Schaney — Software Developer</title>
-  <meta name="description" content="Portfolio of Matthew Schaney — software developer building useful things with care." />
-  <link rel="canonical" href="https://example.com/" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <meta property="og:title" content="Matthew Schaney — Software Developer" />
-  <meta property="og:description" content="Projects, writing, and contact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og-image.png" />
-  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Matthew Schaney",
-    "url": "https://example.com/",
-    "jobTitle": "Software Developer",
-    "sameAs": [
-      "https://github.com/matthewschaney",
-      "https://www.linkedin.com/in/matthew-schaney/"
-    ]
-  }
-  </script>
-
-  <link rel="preload" href="assets/Inter-VariableFont_slnt,wght.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header" role="banner">
-    <nav class="nav" aria-label="Primary">
-      <a class="logo" href="#"><span aria-hidden="true">⌂</span><span class="sr-only">Home</span></a>
-      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
-      <ul class="nav-links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#writing">Writing</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="main" tabindex="-1">
-    <section class="hero" id="home">
-      <!-- Signature starfield background -->
-      <canvas id="stars" aria-hidden="true"></canvas>
-
-      <div class="container">
-        <h1>Matthew Schaney</h1>
-        <p class="tagline">Software developer who loves programming, astronomy, video games, history, and maps.</p>
-        <div class="cta">
-          <a class="btn" href="#projects">View Projects</a>
-          <a class="btn secondary" href="assets/Matthew_Schaney_Resume.pdf" download>Download Résumé</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="container">
-        <h2>Featured Projects</h2>
-        <!-- populated by script.js -->
-        <div id="projectsGrid" class="grid"></div>
-      </div>
-    </section>
-
-    <section id="experience" class="section">
-      <div class="container">
-        <h2>Experience</h2>
-        <ul class="timeline">
-          <li class="reveal">
-            <h3>Software Developer — The Management Council</h3>
-            <p class="muted">Apr 2025 — Present · Remote · Columbus, OH</p>
-            <p>Full-stack Java developer on the State Software Development Team.</p>
-          </li>
-
-          <li class="reveal">
-            <h3>Software Developer — Schaney Coding (Freelance)</h3>
-            <p class="muted">Dec 2022 — Mar 2025 · Remote</p>
-            <ul>
-              <li>Maintained a 5/5 star review with complete customer satisfaction across 12 orders.</li>
-              <li>Developed desktop applications integrating LLMs into legacy systems, enhancing user experience.</li>
-              <li>Created an astronomy n-body simulator for accurate celestial-object motion simulation.</li>
-              <li>Designed a battle system for a game, improving gameplay experience and customer satisfaction.</li>
-              <li>Built a fully fledged inventory-management system using modern web technologies.</li>
-            </ul>
-          </li>
-
-          <li class="reveal">
-            <h3>Application Developer — Hastings Mutual Insurance Company (Internship)</h3>
-            <p class="muted">Jun 2023 — Sep 2023 · Hybrid · Hastings, MI</p>
-            <ul>
-              <li>Enhanced and maintained applications using .NET, ASP, HTML, CSS, JavaScript, C#, and React for full-stack development.</li>
-              <li>Implemented a robust JSON server for the organization’s React codebase, improving integration and performance.</li>
-              <li>Optimized existing codebase through thoughtful refactoring, leading to increased efficiency.</li>
-            </ul>
-          </li>
-
-          <li class="reveal">
-            <h3>Motor Transport Operator — US Army</h3>
-            <p class="muted">Jun 2016 — Oct 2019 · Fayetteville, NC</p>
-            <ul>
-              <li>Managed transportation logistics, ensuring safe and timely delivery of personnel and equipment.</li>
-              <li>Conducted training for new recruits on vehicle operations and safety protocols, improving team readiness.</li>
-              <li>Managed an entire motor pool, including dispatching, vehicle reports, and fueling.</li>
-              <li>Maintained a security clearance.</li>
-              <li>Served as a paratrooper.</li>
-              <li>Honorably discharged at the end of contract.</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="education" class="section">
-      <div class="container">
-        <h2>Education</h2>
-        <ul class="timeline">
-          <li class="reveal">
-            <h3>Western Michigan University</h3>
-            <p class="muted">Bachelor of Science — Computer Science · Jan 2022 — Apr 2025</p>
-          </li>
-          <li class="reveal">
-            <h3>Kalamazoo Valley Community College</h3>
-            <p class="muted">Associate of Science — Computer Science · Jan 2020 — Dec 2021</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="writing" class="section">
-      <div class="container">
-        <h2>Writing</h2>
-        <p class="muted reveal">Coming soon — essays on building useful software, astronomy-inspired debugging, and maps.</p>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-        <p class="reveal">Best way to reach me is email: <a href="mailto:matt@schaney.net">matt@schaney.net</a> or on <a href="https://github.com/matthewschaney">GitHub</a>.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small>© <span id="year"></span> Matthew Schaney. Built with plain HTML/CSS/JS. <a href="https://github.com/matthewschaney/your-portfolio">Source</a>.</small>
-    </div>
-  </footer>
-
-  <!-- no inline JS; everything lives in script.js -->
-  <script src="script.js" defer></script>
-</body>
-</html>
+ <!doctype html>
+ <html lang="en">
+   <head>
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <title>Matthew Schaney — Software Developer</title>
+     <meta name="description" content="Portfolio of Matthew Schaney — software developer building useful things with care." />
+     <link rel="canonical" href="https://example.com/" />
+     <!-- Favicons -->
+     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+     <link rel="icon" href="/favicon.ico">
+     <!-- Open Graph -->
+     <meta property="og:title" content="Matthew Schaney — Software Developer" />
+     <meta property="og:description" content="Projects, writing, and contact." />
+     <meta property="og:type" content="website" />
+     <meta property="og:image" content="/assets/og-image.png" />
+     <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+     <!-- Schema.org -->
+     <script type="application/ld+json">
+       {
+         "@context": "https://schema.org",
+         "@type": "Person",
+         "name": "Matthew Schaney",
+         "url": "https://example.com/",
+         "jobTitle": "Software Developer",
+         "sameAs": ["https://github.com/matthewschaney", "https://www.linkedin.com/in/matthew-schaney/"]
+       }
+     </script>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="styles.css" />
+   </head>
+   <body>
+     <a class="skip-link" href="#main">Skip to content</a>
+     <header class="site-header" role="banner">
+       <nav class="nav" aria-label="Primary">
+         <a class="logo" href="#">
+           <span aria-hidden="true">⌂</span>
+           <span class="sr-only">Home</span>
+         </a>
+         <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+         <ul class="nav-links">
+           <li>
+             <a href="#projects">Projects</a>
+           </li>
+           <li>
+             <a href="#experience">Experience</a>
+           </li>
+           <li>
+             <a href="#education">Education</a>
+           </li>
+           <li>
+             <a href="#writing">Writing</a>
+           </li>
+           <li>
+             <a href="#contact">Contact</a>
+           </li>
+         </ul>
+       </nav>
+     </header>
+     <main id="main" tabindex="-1">
+       <section class="hero" id="home">
+         <canvas id="stars" aria-hidden="true"></canvas>
+         <div class="container">
+           <h1>Matthew Schaney</h1>
+           <p class="tagline">Software developer who loves programming, astronomy, video games, history, and maps.</p>
+           <!-- Experience + level badges -->
+           <div class="meta-badges" id="expSummary" aria-live="polite"></div>
+           <div class="cta">
+             <a class="btn" href="#projects">View Projects</a>
+             <a class="btn secondary" href="/assets/Matthew_Schaney_Resume.pdf" download>Download Résumé</a>
+           </div>
+         </div>
+       </section>
+       <!-- PROJECTS -->
+       <section id="projects" class="section">
+         <div class="container">
+           <h2>Featured Projects</h2>
+           <div class="panel">
+             <ul id="projectsList" class="card-list" aria-label="Projects"></ul>
+             <a class="panel-cta" href="#writing">Browse writing & case studies ↗</a>
+           </div>
+         </div>
+       </section>
+       <!-- EXPERIENCE -->
+       <section id="experience" class="section">
+         <div class="container">
+           <h2>Experience</h2>
+           <p class="muted exp-inline-summary" id="expInline"></p>
+           <div class="panel">
+             <ul class="card-list" aria-label="Work experience">
+               <li class="card-item reveal exp-role" data-logo="MC" data-accent="245">
+                 <div class="avatar"></div>
+                 <div class="content">
+                   <div class="title">Software Developer — The Management Council</div>
+                   <div class="subtitle">Full-stack Java • State Software Development Team</div>
+                 </div>
+                 <div class="meta">2025 — Present</div>
+               </li>
+               <li class="card-item reveal exp-role" data-logo="SC" data-accent="210">
+                 <div class="avatar"></div>
+                 <div class="content">
+                   <div class="title">Software Developer — Schaney Coding (Freelance)</div>
+                   <div class="subtitle">LLM apps • N-body sim • Inventory systems</div>
+                 </div>
+                 <div class="meta">2022 — 2025</div>
+               </li>
+               <li class="card-item reveal exp-role" data-logo="HM" data-accent="185">
+                 <div class="avatar"></div>
+                 <div class="content">
+                   <div class="title">Application Developer — Hastings Mutual</div>
+                   <div class="subtitle">.NET • React • JSON services • Refactoring</div>
+                 </div>
+                 <div class="meta">2023</div>
+               </li>
+               <li class="card-item reveal" data-logo="US" data-accent="30">
+                 <div class="avatar"></div>
+                 <div class="content">
+                   <div class="title">Motor Transport Operator — US Army</div>
+                   <div class="subtitle">Logistics & motor pool • Honorable discharge</div>
+                 </div>
+                 <div class="meta">2016 — 2019</div>
+               </li>
+             </ul>
+             <a class="panel-cta" href="/assets/Matthew_Schaney_Resume.pdf" download>Download CV ↓</a>
+           </div>
+         </div>
+       </section>
+       <!-- EDUCATION -->
+       <section id="education" class="section">
+         <div class="container">
+           <h2>Education</h2>
+           <div class="panel">
+             <ul class="card-list" aria-label="Education">
+               <li class="card-item reveal" data-logo="WM" data-accent="275">
+                 <div class="avatar"></div>
+                 <div class="content">
+                   <div class="title">Western Michigan University</div>
+                   <div class="subtitle">B.S. — Computer Science</div>
+                 </div>
+                 <div class="meta">2022 — 2025</div>
+               </li>
+               <li class="card-item reveal" data-logo="KV" data-accent="110">
+                 <div class="avatar"></div>
+                 <div class="content">
+                   <div class="title">Kalamazoo Valley Community College</div>
+                   <div class="subtitle">A.S. — Computer Science</div>
+                 </div>
+                 <div class="meta">2020 — 2021</div>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </section>
+       <!-- WRITING -->
+       <section id="writing" class="section">
+         <div class="container">
+           <h2>Writing</h2>
+           <div class="panel">
+             <ul class="card-list" aria-label="Writing">
+               <li class="card-item reveal" data-logo="✍" data-accent="250">
+                 <div class="avatar"></div>
+                 <div class="content">
+                   <div class="title">Coming soon</div>
+                   <div class="subtitle">Essays on useful software, astronomy debugging, and maps.</div>
+                 </div>
+                 <div class="meta">—</div>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </section>
+       <!-- CONTACT -->
+       <section id="contact" class="section">
+         <div class="container">
+           <h2>Contact</h2>
+           <p>Best way to reach me is email: <a href="mailto:matt@schaney.net">matt@schaney.net</a> or on <a href="https://github.com/matthewschaney">GitHub</a>. </p>
+         </div>
+       </section>
+     </main>
+     <footer class="site-footer">
+       <div class="container">
+         <small>© <span id="year"></span> Matthew Schaney. Built with plain HTML/CSS/JS. <a href="https://github.com/matthewschaney/your-portfolio">Source</a>. </small>
+       </div>
+     </footer>
+     <script src="script.js" defer></script>
+   </body>
+ </html>
