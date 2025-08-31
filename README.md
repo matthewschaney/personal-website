@@ -46,7 +46,7 @@ Custom domain: [schaney.net](https://schaney.net).
 ├── script.js         # behavior (dark mode, projects)
 ├── projects.json     # projects list
 ├── assets/           # icons, résumé, images
-└── LICENSE           # MIT (code), CC BY (content)
+└── LICENSE           # GPLv3 (code), CC BY (content)
 ```
 
 ---
@@ -62,7 +62,7 @@ Custom domain: [schaney.net](https://schaney.net).
 
 ## 📜 License
 
-- **Code**: MIT  
+- **Code**: GPLv3
 - **Content (writing, images)**: CC BY 4.0  
 
 ---
