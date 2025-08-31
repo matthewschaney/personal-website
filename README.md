@@ -37,29 +37,6 @@ Custom domain: [schaney.net](https://schaney.net).
 
 ---
 
-## 📂 Structure
-
-```
-.
-├── index.html        # main page
-├── styles.css        # styles
-├── script.js         # behavior (dark mode, projects)
-├── projects.json     # projects list
-├── assets/           # icons, résumé, images
-└── LICENSE           # GPLv3 (code), CC BY (content)
-```
-
----
-
-## 🔮 Roadmap
-
-- [ ] Blog (Markdown → static)  
-- [ ] Project filters & search  
-- [ ] Privacy-friendly analytics (e.g. Plausible, Umami)  
-- [ ] CI checks (accessibility, Lighthouse)  
-
----
-
 ## 📜 License
 
 - **Code**: GPLv3
