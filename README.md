@@ -10,8 +10,8 @@ Deployed at [schaney.net](https://schaney.net).
 
 ```bash
 # Clone
-git clone git@github.com:<username>/portfolio.git
-cd portfolio
+git clone git@github.com:matthewschaney/personal-website
+cd personal-website
 
 # Preview locally
 open index.html
