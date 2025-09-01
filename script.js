@@ -325,9 +325,6 @@ window.Site = (function () {
       }
 
       const inline = $("#expInline");
-      if (inline) {
-        inline.textContent = `${Math.ceil(professionalYears)} years professional experience across ${items.length} roles.`;
-      }
     } catch {
       list.innerHTML = ``;
       list.setAttribute("aria-busy", "false");

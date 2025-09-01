@@ -578,3 +578,9 @@ p+p {
 	max-width: 100%;
 	margin: 1.25rem 0;
 }
+
+.article .container.prose {
+  width: auto;
+  max-width: var(--measure);
+  margin-inline: auto;
+}
