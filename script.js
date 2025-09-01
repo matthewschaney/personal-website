@@ -1,6 +1,7 @@
 window.Site = (function () {
   const root = document.documentElement;
 
+  const isDarkTheme = () => root.getAttribute("data-theme") === "dark";
   const $ = (sel, el = document) => el.querySelector(sel);
   const $$ = (sel, el = document) => Array.from(el.querySelectorAll(sel));
 
@@ -21,7 +22,6 @@ window.Site = (function () {
   const fmtRangeYears = (start, end) =>
     `${year(start)} - ${end ? year(end) : "Present"}`;
 
-  // Simple in-memory fetch cache.
   const cache = new Map();
   async function getJSON(url, { signal } = {}) {
     if (cache.has(url)) return cache.get(url);
@@ -32,7 +32,6 @@ window.Site = (function () {
     return data;
   }
 
-  // Inject initials into avatar placeholders + hue from data-accent.
   function injectAvatarInitials(scopeEl = document) {
     $$(".card-item", scopeEl).forEach((li) => {
       const logo = li.getAttribute("data-logo") || "";
@@ -46,7 +45,6 @@ window.Site = (function () {
     });
   }
 
-  // Render a UL of "cards".
   function renderCards(listEl, items, mapItemToCard) {
     if (!listEl) return;
     listEl.innerHTML = "";
@@ -76,11 +74,12 @@ window.Site = (function () {
     const stored = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const theme = stored || (prefersDark ? "dark" : "light");
-    if (theme === "dark") root.setAttribute("data-theme", "dark");
+    root.setAttribute("data-theme", theme);
     $("#themeToggle")?.addEventListener("click", () => {
-      const isDark = root.getAttribute("data-theme") === "dark";
-      root.setAttribute("data-theme", isDark ? "light" : "dark");
-      localStorage.setItem("theme", isDark ? "light" : "dark");
+      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      root.dispatchEvent(new CustomEvent("themechange", { detail: { theme: next } }));
     });
   }
 
@@ -94,16 +93,12 @@ window.Site = (function () {
     const navlinks = $$('.nav a[href^="#"]');
     const setActive = (id) =>
       navlinks.forEach((a) => a.setAttribute("aria-current", a.getAttribute("href") === id ? "true" : "false"));
-
     const io = new IntersectionObserver((entries) => {
       const v = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (!v) return;
       setActive("#" + v.target.id);
     }, { rootMargin: "-40% 0px -55% 0px", threshold: [0, .25, .5, .75, 1] });
-
     sections.forEach((s) => io.observe(s));
-
-    // Smooth hash nav (with View Transitions if available).
     $$('.nav a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {
         const href = a.getAttribute("href");
@@ -126,6 +121,7 @@ window.Site = (function () {
     const contentEl = $(".hero .container");
     if (!canvas || !contentEl) return;
 
+    let dark = isDarkTheme();
     const prefersReduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const ctx = canvas.getContext("2d", { alpha: true });
 
@@ -148,6 +144,11 @@ window.Site = (function () {
     let stars = [];
     let anim, lastT = 0, paused = prefersReduced;
     let t0 = null;
+
+    root.addEventListener("themechange", (e) => {
+      dark = e.detail?.theme === "dark";
+      ctx.clearRect(0, 0, w, h);
+    });
 
     const calcGeometry = () => {
       const cRect = canvas.getBoundingClientRect();
@@ -227,9 +228,10 @@ window.Site = (function () {
 
         const tw = TWINKLE * Math.sin(s.tw + t * 0.003);
         const size = s.z * 2.2 + tw;
-        const light = 74 + s.z * 24 + tw * 18;
+        const lightness = dark ? 74 + s.z * 24 + tw * 18 : 12 + (1 - s.z) * 10 + tw * 6;
+
         ctx.globalAlpha = 0.8 + s.z * 0.28;
-        ctx.fillStyle = `hsl(0 0% ${light}%)`;
+        ctx.fillStyle = `hsl(0 0% ${lightness}%)`;
         ctx.fillRect(s.x, s.y, size, size);
       }
 
@@ -296,7 +298,6 @@ window.Site = (function () {
         };
       });
 
-      // Compute years for roles that count toward pro experience (tagged with "exp-role").
       const now = new Date();
       const months = items
         .filter(e => Array.isArray(e.classes) && e.classes.includes("exp-role"))
@@ -373,7 +374,6 @@ window.Site = (function () {
     }
   }
 
-  // Used by writing/index.html.
   async function renderWritingIndex() {
     const list = $("#writingIndex");
     if (!list) return;
@@ -406,14 +406,11 @@ window.Site = (function () {
     renderExperienceAndBadges();
     renderEducation();
     renderWritingOnHome();
-    // Inject initials in case any static content ships with empty avatars.
     injectAvatarInitials(document);
   }
 
-  // Auto-init when loaded on the home page.
   window.addEventListener("DOMContentLoaded", initHome);
 
-  // Public API (used by writing index page).
   return {
     renderWritingIndex
   };
