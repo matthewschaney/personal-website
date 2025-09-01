@@ -4,7 +4,7 @@
     "degree": "B.S. - Computer Science",
     "start": "2022-01",
     "end": "2025-04",
-    "logo": "WM",
+    "image": "WM",
     "accent": 275
   },
   {
@@ -12,7 +12,7 @@
     "degree": "A.S. - Computer Science",
     "start": "2020-01",
     "end": "2021-12",
-    "logo": "KV",
+    "image": "KV",
     "accent": 110
   }
 ]

@@ -260,14 +260,14 @@ p+p {
 	background: var(--accent);
 }
 
-/* Buttons */
+/* Buttons + CTA */
 .cta {
 	display: flex;
-	gap: .75rem;
-	margin-top: 1.25rem;
 	flex-wrap: wrap;
-	row-gap: .5rem;
+	align-items: center;
 	justify-content: center;
+	gap: .75rem 1rem;
+	margin-top: 1.25rem;
 }
 
 .btn {
@@ -294,6 +294,62 @@ p+p {
 	color: var(--fg);
 	border-color: color-mix(in oklab, var(--fg) 25%, transparent);
 }
+
+/* Social icon bar (compact) */
+.socials {
+	display: flex;
+	gap: .75rem;
+	align-items: center;
+}
+
+.icon-link {
+	inline-size: 40px;
+	block-size: 40px;
+	display: inline-grid;
+	place-items: center;
+	border-radius: 8px;
+	background: transparent;
+	outline: none;
+}
+
+.icon-link svg {
+	width: 22px;
+	height: 22px;
+	fill: currentColor;
+	color: var(--muted);
+	opacity: .85;
+	transition: opacity .15s ease, transform .15s ease, color .15s ease;
+}
+
+.icon-link:hover svg,
+.icon-link:focus-visible svg {
+	color: var(--fg);
+	opacity: 1;
+	transform: translateY(-1px);
+}
+
+/* Simple Icons via CSS mask */
+.si {
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+	background-color: var(--muted);
+	mask: no-repeat center / contain;
+	-webkit-mask: no-repeat center / contain;
+}
+
+/* Fiverr glyph from Simple Icons CDN */
+.si-fiverr {
+	mask-image: url("https://cdn.simpleicons.org/fiverr");
+	-webkit-mask-image: url("https://cdn.simpleicons.org/fiverr");
+}
+
+/* hover/focus matches your SVG behavior */
+.icon-link:hover .si,
+.icon-link:focus-visible .si {
+	background-color: var(--fg);
+}
+
 
 /* Sections (homepage/sections remain centered) */
 .section {
@@ -481,6 +537,7 @@ p+p {
 	}
 }
 
+/* Article layout */
 .article {
 	padding: clamp(2.5rem, 6vw, 5rem) 0;
 }
@@ -494,15 +551,12 @@ p+p {
 .article .prose {
 	max-width: var(--measure);
 	margin: 0 auto;
-	/* center within the padded container */
 }
 
-/* Force left text if any center alignment trickles down */
 .article .prose :where(h1, h2, h3, p, ul, ol) {
 	text-align: left;
 }
 
-/* Optional niceties */
 .article .prose h1 {
 	margin-top: 0.2rem;
 }

@@ -1,135 +1,152 @@
- <!doctype html>
- <html lang="en">
-   <head>
-     <meta charset="utf-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1" />
-     <title>Matthew Schaney - Software Developer</title>
-     <meta name="description" content="Portfolio of Matthew Schaney - software developer building useful things with care." />
-     <link rel="canonical" href="https://schaney.net/" />
-     <!-- Favicons -->
-     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-     <link rel="icon" href="/favicon.ico">
-     <!-- Open Graph -->
-     <meta property="og:title" content="Matthew Schaney - Software Developer" />
-     <meta property="og:description" content="Projects, writing, and contact." />
-     <meta property="og:type" content="website" />
-     <meta property="og:image" content="/assets/og-image.png" />
-     <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
-     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-     <!-- Schema.org -->
-     <script type="application/ld+json">
-       {
-         "@context": "https://schema.org",
-         "@type": "Person",
-         "name": "Matthew Schaney",
-         "url": "https://schaney.net/",
-         "jobTitle": "Software Developer",
-         "sameAs": ["https://github.com/matthewschaney", "https://www.linkedin.com/in/matthew-schaney/"]
-       }
-     </script>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="styles.css" />
-   </head>
-   <body>
-     <a class="skip-link" href="#main">Skip to content</a>
-     <header class="site-header" role="banner">
-       <nav class="nav" aria-label="Primary">
-         <a class="logo" href="#">
-           <span aria-hidden="true">⌂</span>
-           <span class="sr-only">Home</span>
-         </a>
-         <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
-         <ul class="nav-links">
-           <li>
-             <a href="#projects">Projects</a>
-           </li>
-           <li>
-             <a href="#experience">Experience</a>
-           </li>
-           <li>
-             <a href="#education">Education</a>
-           </li>
-           <li>
-             <a href="#writing">Writing</a>
-           </li>
-           <li>
-             <a href="#contact">Contact</a>
-           </li>
-         </ul>
-       </nav>
-     </header>
-     <main id="main" tabindex="-1">
-       <section class="hero" id="home">
-         <canvas id="stars" aria-hidden="true"></canvas>
-         <div class="container">
-           <h1>Matthew Schaney</h1>
-           <p class="tagline">Software developer who loves programming, astronomy, chess, video games, history, and maps.</p>
-           <!-- Experience + level badges -->
-           <div class="meta-badges" id="expSummary" aria-live="polite"></div>
-           <div class="cta">
-             <a class="btn" href="#projects">View Projects</a>
-             <a class="btn secondary" href="/assets/Matthew_Schaney_Resume.pdf" download>Download Résumé</a>
-             <a class="btn secondary" href="https://www.linkedin.com/in/matthew-schaney/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-             <a class="btn secondary" href="https://github.com/matthewschaney" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
-             <a class="btn secondary" href="https://www.fiverr.com/matthewschaney/" target="_blank" rel="noopener" aria-label="Fiverr">Fiverr</a>
-           </div>
-         </div>
-       </section>
-       <!-- PROJECTS -->
-       <section id="projects" class="section">
-         <div class="container">
-           <h2>Featured Projects</h2>
-           <div class="panel">
-             <ul id="projectsList" class="card-list" aria-label="Projects"></ul>
-           </div>
-         </div>
-       </section>
-       <!-- EXPERIENCE -->
-       <section id="experience" class="section">
-         <div class="container">
-           <h2>Experience</h2>
-           <p class="muted exp-inline-summary" id="expInline"></p>
-           <div class="panel">
-             <!-- Populated by script.js from /data/experience.json -->
-             <ul class="card-list" id="experienceList" aria-label="Work experience"></ul>
-             <a class="panel-cta" href="/assets/Matthew_Schaney_Resume.pdf" download>Download CV ↓</a>
-           </div>
-         </div>
-       </section>
-       <!-- EDUCATION -->
-       <section id="education" class="section">
-         <div class="container">
-           <h2>Education</h2>
-           <div class="panel">
-             <!-- Populated by script.js from /data/education.json -->
-             <ul class="card-list" id="educationList" aria-label="Education"></ul>
-           </div>
-         </div>
-       </section>
-       <!-- WRITING -->
-       <section id="writing" class="section">
-         <div class="container">
-           <h2>Writing</h2>
-           <div class="panel">
-             <ul class="card-list" id="writingList" aria-label="Writing"></ul>
-           </div>
-         </div>
-       </section>
-       <!-- CONTACT -->
-       <section id="contact" class="section">
-         <div class="container">
-           <h2>Contact</h2>
-           <p>Best way to reach me is email: <a href="mailto:matt@schaney.net">matt@schaney.net</a> or on <a href="https://github.com/matthewschaney">GitHub</a>. </p>
-         </div>
-       </section>
-     </main>
-     <footer class="site-footer">
-       <div class="container">
-         <small>© <span id="year"></span> Matthew Schaney. Built with plain HTML/CSS/JS. <a href="https://github.com/matthewschaney/personal-website">Source</a>. </small>
-       </div>
-     </footer>
-     <script src="script.js" defer></script>
-   </body>
- </html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Matthew Schaney - Software Developer</title>
+    <meta name="description" content="Portfolio of Matthew Schaney - software developer building useful things with care." />
+    <link rel="canonical" href="https://schaney.net/" />
+    <!-- Favicons -->
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Matthew Schaney - Software Developer" />
+    <meta property="og:description" content="Projects, writing, and contact." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/og-image.png" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Matthew Schaney",
+        "url": "https://schaney.net/",
+        "jobTitle": "Software Developer",
+        "sameAs": ["https://github.com/matthewschaney", "https://www.linkedin.com/in/matthew-schaney/"]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" role="banner">
+      <nav class="nav" aria-label="Primary">
+        <a class="logo" href="#">
+          <span aria-hidden="true">⌂</span>
+          <span class="sr-only">Home</span>
+        </a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+        <ul class="nav-links">
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+          <li>
+            <a href="#experience">Experience</a>
+          </li>
+          <li>
+            <a href="#education">Education</a>
+          </li>
+          <li>
+            <a href="#writing">Writing</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="hero" id="home">
+        <canvas id="stars" aria-hidden="true"></canvas>
+        <div class="container">
+          <h1>Matthew Schaney</h1>
+          <p class="tagline">Software developer who loves programming, astronomy, chess, video games, history, and maps.</p>
+          <!-- Experience + level badges -->
+          <div class="meta-badges" id="expSummary" aria-live="polite"></div>
+          <div class="cta">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn secondary" href="/assets/Matthew_Schaney_Resume.pdf" download>Download Résumé</a>
+            <!-- Social icon bar (compact, like your mock) -->
+            <nav class="socials" aria-label="Social links">
+              <!-- GitHub -->
+              <a class="icon-link" href="https://github.com/matthewschaney" target="_blank" rel="noopener me" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.22.7-3.9-1.39-3.9-1.39-.53-1.35-1.3-1.71-1.3-1.71-1.07-.74.08-.73.08-.73 1.18.08 1.8 1.22 1.8 1.22 1.05 1.8 2.76 1.28 3.43.98.11-.77.41-1.28.74-1.57-2.57-.29-5.28-1.28-5.28-5.7 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.52.11-3.16 0 0 .98-.31 3.2 1.19a11 11 0 0 1 5.83 0c2.22-1.5 3.2-1.19 3.2-1.19.63 1.64.24 2.86.12 3.16.75.81 1.2 1.84 1.2 3.1 0 4.43-2.71 5.4-5.29 5.69.42.36.79 1.06.79 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z" />
+                </svg>
+              </a>
+              <!-- LinkedIn -->
+              <a class="icon-link" href="https://www.linkedin.com/in/matthew-schaney/" target="_blank" rel="noopener me" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM10 9h3.8v1.8h.05c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.65 4.76 6.1V21h-4v-4.9c0-1.17-.02-2.68-1.64-2.68-1.64 0-1.9 1.28-1.9 2.6V21h-4z" />
+                </svg>
+              </a>
+              <!-- Fiverr -->
+              <!-- Fiverr -->
+              <a class="icon-link" href="https://www.fiverr.com/matthewschaney/" target="_blank" rel="noopener me" aria-label="Fiverr">
+                <span class="si si-fiverr" aria-hidden="true"></span>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </section>
+      <!-- PROJECTS -->
+      <section id="projects" class="section">
+        <div class="container">
+          <h2>Featured Projects</h2>
+          <div class="panel">
+            <ul id="projectsList" class="card-list" aria-label="Projects"></ul>
+          </div>
+        </div>
+      </section>
+      <!-- EXPERIENCE -->
+      <section id="experience" class="section">
+        <div class="container">
+          <h2>Experience</h2>
+          <p class="muted exp-inline-summary" id="expInline"></p>
+          <div class="panel">
+            <!-- Populated by script.js from /data/experience.json -->
+            <ul class="card-list" id="experienceList" aria-label="Work experience"></ul>
+            <a class="panel-cta" href="/assets/Matthew_Schaney_Resume.pdf" download>Download CV ↓</a>
+          </div>
+        </div>
+      </section>
+      <!-- EDUCATION -->
+      <section id="education" class="section">
+        <div class="container">
+          <h2>Education</h2>
+          <div class="panel">
+            <!-- Populated by script.js from /data/education.json -->
+            <ul class="card-list" id="educationList" aria-label="Education"></ul>
+          </div>
+        </div>
+      </section>
+      <!-- WRITING -->
+      <section id="writing" class="section">
+        <div class="container">
+          <h2>Writing</h2>
+          <div class="panel">
+            <ul class="card-list" id="writingList" aria-label="Writing"></ul>
+          </div>
+        </div>
+      </section>
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <div class="container">
+          <h2>Contact</h2>
+          <p>Best way to reach me is email: <a href="mailto:matt@schaney.net">matt@schaney.net</a> or on <a href="https://github.com/matthewschaney">GitHub</a>. </p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <small>© <span id="year"></span> Matthew Schaney. Built with plain HTML/CSS/JS. <a href="https://github.com/matthewschaney/personal-website">Source</a>. </small>
+      </div>
+    </footer>
+    <script src="script.js" defer></script>
+  </body>
+</html>

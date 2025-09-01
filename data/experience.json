@@ -5,7 +5,7 @@
     "subtitle": "Full-stack Java • State Software Development Team",
     "start": "2025-04-14",
     "end": null,
-    "logo": "MC",
+    "image": "/assets/mc_logo.png",
     "accent": 245,
     "classes": ["exp-role"]
   },
@@ -15,7 +15,7 @@
     "subtitle": "LLM integrations • Web apps • Inventory systems",
     "start": "2022-12-01",
     "end": "2025-03-28",
-    "logo": "SC",
+    "image": "SC",
     "accent": 210,
     "classes": ["exp-role"]
   },
@@ -25,7 +25,7 @@
     "subtitle": ".NET • React • JSON services • Refactoring",
     "start": "2023-05-01",
     "end": "2023-08-31",
-    "logo": "HM",
+    "image": "HM",
     "accent": 185
   },
   {
@@ -34,7 +34,7 @@
     "subtitle": "Training NCO • Paratrooper",
     "start": "2016-01-01",
     "end": "2019-12-31",
-    "logo": "US",
+    "image": "US",
     "accent": 30
   }
 ]
