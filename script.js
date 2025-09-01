@@ -62,6 +62,25 @@
     });
   }
 
+  // ---------- Utilities ----------
+  const formatYear = (iso) => (iso ? String(iso).slice(0, 4) : '');
+  const formatRangeYears = (start, end) =>
+    `${formatYear(start)} - ${end ? formatYear(end) : 'Present'}`;
+
+  const injectAvatarInitials = (scopeEl) => {
+    // Scope to a container (so we can call after dynamic renders).
+    scopeEl.querySelectorAll('.card-item').forEach((li) => {
+      const logo = li.getAttribute('data-logo') || '';
+      const hue = li.getAttribute('data-accent') || '245';
+      li.style.setProperty('--avatar-h', hue);
+      const av = li.querySelector('.avatar');
+      const hasImg = !!av?.querySelector('img');
+      if (av && !hasImg && !av.textContent.trim()) {
+        av.textContent = logo.slice(0, 2).toUpperCase();
+      }
+    });
+  };
+
   // Starfield: circular ring around hero content.
   (() => {
     const canvas = document.getElementById('stars');
@@ -223,8 +242,8 @@
     visibility();
   })();
 
-  // Projects -> compact card list.
-  fetch('projects.json')
+  // Projects -> compact card list.  (moved to /data)
+  fetch('data/projects.json')
     .then((r) => r.json())
     .then((items) => {
       const list = document.getElementById('projectsList');
@@ -236,8 +255,7 @@
           p.tags && p.tags.length
             ? Math.abs(p.tags[0].split('').reduce((a, c) => a + c.charCodeAt(0), 0)) % 360
             : 245;
-        li.style.setProperty('--avatar-h', hue);
-
+        li.setAttribute('data-accent', String(hue));
         li.innerHTML = `
           <div class="avatar" aria-hidden="true">
             ${p.image ? `<img src="${p.image}" alt="" loading="lazy">` : `<span>${(p.name[0] || 'P')}</span>`}
@@ -250,6 +268,7 @@
         `;
         list.appendChild(li);
       });
+      injectAvatarInitials(document); // ensure avatars get initials/colors
     })
     .catch(() => {
       document.getElementById('projectsList').innerHTML = `
@@ -263,8 +282,8 @@
         </li>`;
     });
 
-  // Writing -> compact card list.
-  fetch('writing.json')
+  // Writing -> compact card list.  (moved to /data)
+  fetch('data/writing.json')
     .then((r) => r.json())
     .then((items) => {
       const list = document.getElementById('writingList');
@@ -274,6 +293,7 @@
       const formatIsoDate = (iso) => {
         const [year, month, day] = iso.split('-');
         return `${month.padStart(2, '0')}/${day.padStart(2, '0')}/${year}`;
+        // expects YYYY-MM-DD
       };
 
       items
@@ -293,6 +313,7 @@
           `;
           list.appendChild(li);
         });
+      injectAvatarInitials(document);
     })
     .catch(() => {
       const list = document.getElementById('writingList');
@@ -309,17 +330,73 @@
       }
     });
 
-  // Inject initials into avatars.
-  document.querySelectorAll('.card-item').forEach((li) => {
-    const logo = li.getAttribute('data-logo') || '';
-    const hue = li.getAttribute('data-accent') || '245';
-    li.style.setProperty('--avatar-h', hue);
-    const av = li.querySelector('.avatar');
-    const hasImg = !!av?.querySelector('img');
-    if (av && !hasImg && !av.textContent.trim()) {
-      av.textContent = logo.slice(0, 2).toUpperCase();
-    }
-  });
+  // Experience -> from /data/experience.json
+  (() => {
+    const container = document.querySelector('#experience .panel .card-list');
+    if (!container) return;
+
+    fetch('data/experience.json')
+      .then((r) => r.json())
+      .then((items) => {
+        container.innerHTML = '';
+        items.forEach((e) => {
+          const li = document.createElement('li');
+          const extraClasses = Array.isArray(e.classes) ? ` ${e.classes.join(' ')}` : '';
+          li.className = `card-item reveal${extraClasses}`;
+          li.setAttribute('data-logo', e.logo || '');
+          li.setAttribute('data-accent', String(e.accent ?? '245'));
+
+          li.innerHTML = `
+            <div class="avatar"></div>
+            <div class="content">
+              <div class="title">${e.role} - ${e.company}</div>
+              <div class="subtitle">${e.subtitle || ''}</div>
+            </div>
+            <div class="meta">${formatRangeYears(e.start, e.end)}</div>
+          `;
+          container.appendChild(li);
+        });
+        injectAvatarInitials(document);
+      })
+      .catch(() => {
+        // If fetch fails, leave existing static items alone.
+      });
+  })();
+
+  // Education -> from /data/education.json
+  (() => {
+    const container = document.querySelector('#education .panel .card-list');
+    if (!container) return;
+
+    fetch('data/education.json')
+      .then((r) => r.json())
+      .then((items) => {
+        container.innerHTML = '';
+        items.forEach((ed) => {
+          const li = document.createElement('li');
+          li.className = 'card-item reveal';
+          li.setAttribute('data-logo', ed.logo || '');
+          li.setAttribute('data-accent', String(ed.accent ?? '245'));
+
+          li.innerHTML = `
+            <div class="avatar"></div>
+            <div class="content">
+              <div class="title">${ed.school}</div>
+              <div class="subtitle">${ed.degree}</div>
+            </div>
+            <div class="meta">${formatRangeYears(ed.start, ed.end)}</div>
+          `;
+          container.appendChild(li);
+        });
+        injectAvatarInitials(document);
+      })
+      .catch(() => {
+        // If fetch fails, leave existing static items alone.
+      });
+  })();
+
+  // Inject initials into avatars for anything present at load (also called after renders).
+  injectAvatarInitials(document);
 
   // Experience badges.
   (() => {

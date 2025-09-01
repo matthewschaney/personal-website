@@ -1,0 +1,40 @@
+[
+  {
+    "company": "The Management Council",
+    "role": "Software Developer",
+    "subtitle": "Full-stack Java • State Software Development Team",
+    "start": "2025-04-14",
+    "end": null,
+    "logo": "MC",
+    "accent": 245,
+    "classes": ["exp-role"]
+  },
+  {
+    "company": "Schaney Coding LLC",
+    "role": "Software Developer",
+    "subtitle": "LLM integrations • Web apps • Inventory systems",
+    "start": "2022-12-01",
+    "end": "2025-03-28",
+    "logo": "SC",
+    "accent": 210,
+    "classes": ["exp-role"]
+  },
+  {
+    "company": "Hastings Mutual",
+    "role": "Application Developer Intern",
+    "subtitle": ".NET • React • JSON services • Refactoring",
+    "start": "2023-05-01",
+    "end": "2023-08-31",
+    "logo": "HM",
+    "accent": 185
+  },
+  {
+    "company": "US Army",
+    "role": "Motor Transport Operator",
+    "subtitle": "Training NCO • Paratrooper",
+    "start": "2016-01-01",
+    "end": "2019-12-31",
+    "logo": "US",
+    "accent": 30
+  }
+]

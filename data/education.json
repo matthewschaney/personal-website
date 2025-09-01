@@ -1,0 +1,18 @@
+[
+  {
+    "school": "Western Michigan University",
+    "degree": "B.S. - Computer Science",
+    "start": "2022-01",
+    "end": "2025-04",
+    "logo": "WM",
+    "accent": 275
+  },
+  {
+    "school": "Kalamazoo Valley Community College",
+    "degree": "A.S. - Computer Science",
+    "start": "2020-01",
+    "end": "2021-12",
+    "logo": "KV",
+    "accent": 110
+  }
+]
