@@ -199,8 +199,12 @@ window.Site = (function () {
       const elapsed = t - t0;
       const phase = elapsed % PERIOD_MS;
       const cycleIndex = Math.floor(elapsed / PERIOD_MS);
-      const reverseDir = cycleIndex % 2 === 0 ? 1 : -1;
-      const alpha = Math.max(0, Math.min(1, (phase - RAMP_START) / RAMP_MS));
+      const currDir = cycleIndex % 2 === 0 ? 1 : -1;
+      const nextDir = -currDir;
+      const a = Math.max(0, Math.min(1, (phase - RAMP_START) / RAMP_MS));
+      const ease = a * a * (3 - 2 * a);
+      const targetDir = currDir * (1 - ease) + nextDir * ease;
+      const drive = a * 0.95 + 0.05;
 
       const n = stars.length;
       const ax = new Float32Array(n);
@@ -242,8 +246,8 @@ window.Site = (function () {
         const vr = s.vx * rx + s.vy * ry;
         const txu = -ry, tyu = rx;
         const vt = s.vx * txu + s.vy * tyu;
-        const vtTarget = reverseDir * s.baseSpeed;
-        const vtBoosted = vt + (vtTarget - vt) * alpha;
+        const vtTarget = targetDir * s.baseSpeed;
+        const vtBoosted = vt + (vtTarget - vt) * drive;
         s.vx = txu * vtBoosted + rx * vr;
         s.vy = tyu * vtBoosted + ry * vr;
 
