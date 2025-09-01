@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Writing - Matthew Schaney</title>
+  <meta name="description" content="Essays by Matthew Schaney on programming, tools, and the craft." />
+  <link rel="canonical" href="https://schaney.net/writing/" />
+  <meta property="og:title" content="Writing - Matthew Schaney" />
+  <meta property="og:description" content="Essays by Matthew Schaney on programming, tools, and the craft." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-image.png" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .writing-list .title { font-weight: 600; }
+    .writing-list .subtitle { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="/"><span aria-hidden="true">⌂</span><span class="sr-only">Home</span></a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      <ul class="nav-links">
+        <li><a href="/#projects">Projects</a></li>
+        <li><a href="/#experience">Experience</a></li>
+        <li><a href="/#education">Education</a></li>
+        <li><a href="/writing/" aria-current="true">Writing</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="article">
+    <div class="container prose">
+      <p class="muted" style="margin:0 0 .75rem"><a href="/">←</a></p>
+      <h1>Writing</h1>
+      <p class="muted">Essays, notes, and experiments.</p>
+
+      <div class="panel">
+        <ul class="card-list writing-list" id="writingIndex" aria-label="Articles" aria-busy="true"></ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Matthew Schaney. Built with plain HTML/CSS/JS. 
+        <a href="https://github.com/matthewschaney/personal-website" rel="noopener noreferrer">Source</a>.
+      </small>
+    </div>
+  </footer>
+  <script src="/script.js" defer></script>
+  <script defer>
+    window.addEventListener('DOMContentLoaded', () => window.Site?.renderWritingIndex?.());
+  </script>
+</body>
+</html>
