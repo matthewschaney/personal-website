@@ -1,8 +1,6 @@
-/* Site namespace to avoid globals */
 window.Site = (function () {
   const root = document.documentElement;
 
-  // ---------------- Utilities ----------------
   const $ = (sel, el = document) => el.querySelector(sel);
   const $$ = (sel, el = document) => Array.from(el.querySelectorAll(sel));
 
@@ -23,7 +21,7 @@ window.Site = (function () {
   const fmtRangeYears = (start, end) =>
     `${year(start)} - ${end ? year(end) : "Present"}`;
 
-  // Simple in-memory fetch cache
+  // Simple in-memory fetch cache.
   const cache = new Map();
   async function getJSON(url, { signal } = {}) {
     if (cache.has(url)) return cache.get(url);
@@ -34,7 +32,7 @@ window.Site = (function () {
     return data;
   }
 
-  // Inject initials into avatar placeholders + hue from data-accent
+  // Inject initials into avatar placeholders + hue from data-accent.
   function injectAvatarInitials(scopeEl = document) {
     $$(".card-item", scopeEl).forEach((li) => {
       const logo = li.getAttribute("data-logo") || "";
@@ -48,7 +46,7 @@ window.Site = (function () {
     });
   }
 
-  // Render a UL of "cards"
+  // Render a UL of "cards".
   function renderCards(listEl, items, mapItemToCard) {
     if (!listEl) return;
     listEl.innerHTML = "";
@@ -74,7 +72,6 @@ window.Site = (function () {
     listEl.setAttribute("aria-busy", "false");
   }
 
-  // ---------------- Bootstrapping (theme, nav, year) ----------------
   function initTheme() {
     const stored = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -106,7 +103,7 @@ window.Site = (function () {
 
     sections.forEach((s) => io.observe(s));
 
-    // Smooth hash nav (with View Transitions if available)
+    // Smooth hash nav (with View Transitions if available).
     $$('.nav a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {
         const href = a.getAttribute("href");
@@ -124,7 +121,6 @@ window.Site = (function () {
     });
   }
 
-  // ---------------- Starfield (kept from your original) ----------------
   function initStars() {
     const canvas = $("#stars");
     const contentEl = $(".hero .container");
@@ -255,7 +251,6 @@ window.Site = (function () {
     visibility();
   }
 
-  // ---------------- Data-driven sections ----------------
   async function renderProjects() {
     const list = $("#projectsList");
     if (!list) return;
@@ -301,7 +296,7 @@ window.Site = (function () {
         };
       });
 
-      // Compute years for roles that count toward pro experience (tagged with "exp-role")
+      // Compute years for roles that count toward pro experience (tagged with "exp-role").
       const now = new Date();
       const months = items
         .filter(e => Array.isArray(e.classes) && e.classes.includes("exp-role"))
@@ -316,7 +311,7 @@ window.Site = (function () {
 
       const heroBox = $("#expSummary");
       if (heroBox) {
-        const HOBBY_STARTED_YEAR = 2008; // adjust to your start year if you want
+        const HOBBY_STARTED_YEAR = 2008;
         const hobbyYears = now.getFullYear() - HOBBY_STARTED_YEAR;
         heroBox.innerHTML = `
           <span class="badge"><span class="dot" aria-hidden="true"></span>${hobbyYears} yrs hobbyist</span>
@@ -378,7 +373,7 @@ window.Site = (function () {
     }
   }
 
-  // Used by writing/index.html
+  // Used by writing/index.html.
   async function renderWritingIndex() {
     const list = $("#writingIndex");
     if (!list) return;
@@ -402,7 +397,6 @@ window.Site = (function () {
     }
   }
 
-  // ---------------- Init on home ----------------
   function initHome() {
     initTheme();
     initYear();
@@ -412,14 +406,14 @@ window.Site = (function () {
     renderExperienceAndBadges();
     renderEducation();
     renderWritingOnHome();
-    // Inject initials in case any static content ships with empty avatars
+    // Inject initials in case any static content ships with empty avatars.
     injectAvatarInitials(document);
   }
 
-  // Auto-init when loaded on the home page
+  // Auto-init when loaded on the home page.
   window.addEventListener("DOMContentLoaded", initHome);
 
-  // Public API (used by writing index page)
+  // Public API (used by writing index page).
   return {
     renderWritingIndex
   };

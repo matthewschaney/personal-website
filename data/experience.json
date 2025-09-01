@@ -15,7 +15,7 @@
     "subtitle": "LLM integrations • Web apps • Inventory systems",
     "start": "2022-12-01",
     "end": "2025-03-28",
-    "image": "SC",
+    "image": "/assets/schaney_coding.png",
     "accent": 210,
     "classes": ["exp-role"]
   },
@@ -25,7 +25,7 @@
     "subtitle": ".NET • React • JSON services • Refactoring",
     "start": "2023-05-01",
     "end": "2023-09-01",
-    "image": "HM",
+    "image": "/assets/hastings_logo.jpeg",
     "accent": 185
   },
   {
@@ -34,7 +34,7 @@
     "subtitle": "Training NCO • Paratrooper",
     "start": "2016-01-01",
     "end": "2019-12-31",
-    "image": "US",
+    "image": "/assets/army_logo.png",
     "accent": 30
   }
 ]
