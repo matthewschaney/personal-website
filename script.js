@@ -126,13 +126,19 @@ window.Site = (function () {
     const ctx = canvas.getContext("2d", { alpha: true });
 
     const STAR_COUNT = 260;
+    const STAR_BASE_SIZE = 2.2;
+    const STAR_SIZE_SCALE = 1.5;
     const RING_MARGIN = 90;
     const RING_THICKNESS = 70;
     const TANGENTIAL_SPEED = 85;
-    const RADIAL_SPRING = 2.0;
+    const RADIAL_SPRING = 2.3;
     const DRAG = 0.03;
     const TWINKLE = 0.22;
     const DPR_MAX = 2;
+
+    const PEER_RADIUS = 80;
+    const PEER_FORCE = 260;
+    const SOFTENING = 120;
 
     const PERIOD_MS = 20000;
     const RAMP_MS = 2000;
@@ -179,7 +185,8 @@ window.Site = (function () {
         const tx = -Math.sin(theta);
         const ty = Math.cos(theta);
         const speed = TANGENTIAL_SPEED * (0.8 + Math.random() * 0.4);
-        stars.push({ x, y, vx: tx * speed, vy: ty * speed, baseSpeed: speed, tw: Math.random() * Math.PI * 2, z: 0.3 + Math.random() * 0.7 });
+        const size = STAR_BASE_SIZE * (0.8 + Math.random() * 0.6) * STAR_SIZE_SCALE;
+        stars.push({ x, y, vx: tx * speed, vy: ty * speed, baseSpeed: speed, tw: Math.random() * Math.PI * 2, z: 0.3 + Math.random() * 0.7, size });
       }
     };
 
@@ -195,39 +202,56 @@ window.Site = (function () {
       const reverseDir = cycleIndex % 2 === 0 ? 1 : -1;
       const alpha = Math.max(0, Math.min(1, (phase - RAMP_START) / RAMP_MS));
 
+      const n = stars.length;
+      const ax = new Float32Array(n);
+      const ay = new Float32Array(n);
+
+      for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+          const dx = stars[j].x - stars[i].x;
+          const dy = stars[j].y - stars[i].y;
+          const r2 = dx * dx + dy * dy + SOFTENING;
+          const r = Math.sqrt(r2);
+          if (r > PEER_RADIUS) continue;
+          const invR = 1 / (r || 1);
+          const nx = dx * invR;
+          const ny = dy * invR;
+          const s = (PEER_FORCE * (1 - r / PEER_RADIUS)) / r2;
+          const fx = s * nx;
+          const fy = s * ny;
+          ax[i] -= fx; ay[i] -= fy;
+          ax[j] += fx; ay[j] += fy;
+        }
+      }
+
       ctx.clearRect(0, 0, w, h);
 
-      for (const s of stars) {
+      for (let i = 0; i < n; i++) {
+        const s = stars[i];
+
         const dx = s.x - cx, dy = s.y - cy;
         const r = Math.hypot(dx, dy) || 1;
-
+        const rx = dx / r, ry = dy / r;
         const radialErr = r - ringR;
-        const rx = (dx / r) * radialErr;
-        const ry = (dy / r) * radialErr;
-        const ax = -RADIAL_SPRING * rx;
-        const ay = -RADIAL_SPRING * ry;
+        const axSpring = -RADIAL_SPRING * rx * radialErr;
+        const aySpring = -RADIAL_SPRING * ry * radialErr;
 
-        s.vx = (s.vx + ax * dt) * (1 - DRAG * dt);
-        s.vy = (s.vy + ay * dt) * (1 - DRAG * dt);
+        s.vx = (s.vx + (ax[i] + axSpring) * dt) * (1 - DRAG * dt);
+        s.vy = (s.vy + (ay[i] + aySpring) * dt) * (1 - DRAG * dt);
 
-        const rlen = Math.hypot(dx, dy) || 1;
-        const rxu = dx / rlen, ryu = dy / rlen;
-        const txu = -ryu, tyu = rxu;
-
-        const vr = s.vx * rxu + s.vy * ryu;
+        const vr = s.vx * rx + s.vy * ry;
+        const txu = -ry, tyu = rx;
         const vt = s.vx * txu + s.vy * tyu;
-
         const vtTarget = reverseDir * s.baseSpeed;
         const vtBoosted = vt + (vtTarget - vt) * alpha;
-
-        s.vx = txu * vtBoosted + rxu * vr;
-        s.vy = tyu * vtBoosted + ryu * vr;
+        s.vx = txu * vtBoosted + rx * vr;
+        s.vy = tyu * vtBoosted + ry * vr;
 
         s.x += s.vx * dt;
         s.y += s.vy * dt;
 
         const tw = TWINKLE * Math.sin(s.tw + t * 0.003);
-        const size = s.z * 2.2 + tw;
+        const size = s.size + tw;
         const lightness = dark ? 74 + s.z * 24 + tw * 18 : 12 + (1 - s.z) * 10 + tw * 6;
 
         ctx.globalAlpha = 0.8 + s.z * 0.28;
