@@ -4,20 +4,20 @@
     "description": "VR/AR system developed with Western Michigan University to assist medics in pediatric care. Contributed core AR app logic, backend integration, tablet companion app, and real-time SQL data sync. Reduced medication error rates in testing from ~30% to nearly zero.",
     "url": "https://wmich.edu/news/2023/05/71778",
     "image": "/assets/atom_logo_light.png",
-    "tags": ["VR/AR", "Healthcare", "HoloLens", "SQL", "C#", "Team Project"]
+    "tags": ["C#", "SQL"]
   },
   {
     "name": "XPChronicle",
     "description": "World of Warcraft addon with 700+ downloads. Tracks XP through in-game graphs and analysis.",
     "url": "https://www.curseforge.com/wow/addons/xpchronicle",
     "image": "/assets/xpchronicle_logo.png",
-    "tags": ["World of Warcraft", "Addon", "Lua"]
+    "tags": ["Lua"]
   },
   {
     "name": "Freelance Projects",
     "description": "12+ proprietary freelance projects delivered to clients across multiple domains, including automation, data processing, and web apps.",
     "url": "https://www.fiverr.com/matthewschaney/",
     "image": "/assets/fiverr_logo.png",
-    "tags": ["Freelance", "Software Development"]
+    "tags": ["Python", "C++"]
   }
 ]
